@@ -1,0 +1,4 @@
+layers = " ".join(sorted((list(map(str, layers))), key=int))
+print(layers)
+
+## Only works for case 1-5 as the format output of case 6-10 is very different
