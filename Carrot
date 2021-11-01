@@ -1,0 +1,25 @@
+from itertools import combinations
+
+ans = ""
+
+for i in range(T):
+    if len(C[i]) > 3:
+        # get all combination
+        comb = list(combinations(C[i], 3))
+        for j in range(len(comb)):
+            if (sum(list(comb[j]))+1) % 2 == 0:
+                # is ODD
+                ans += "YES\n"
+                break
+            elif j == (len(comb)-1):
+                ans += "NO\n"
+    else:
+        # Only contain 3 baskets
+        if (sum(C[i])+1) % 2 == 0:
+            ans += "YES\n"
+        else:
+            ans += "NO\n"
+
+print(ans)
+
+## Works on all 10 cases
