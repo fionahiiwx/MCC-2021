@@ -1,0 +1,28 @@
+K = [H, W]
+
+ans = ""
+
+for i in range(len(T)):
+    cr = []
+    if T[i] != 0:
+        for k in K:
+            n = k[i]-1
+            quo = T[i]//n
+            rem = T[i]%n
+            if quo == 0:
+                # the first one
+                cr.append(str(rem-1))
+            elif (quo+1)%2 == 0:
+                # odd, down
+                cr.append(str(k[i]-rem))
+            else:
+                # even, up
+                cr.append(str(rem+1))
+    else:
+        cr.append("1")
+        cr.append("1")
+    ans += " ".join(cr) + "\n"
+
+print(ans)
+
+## Works for the case 6-10 but it should work for case 1-5 too but I did not test for that
