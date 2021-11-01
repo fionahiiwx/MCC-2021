@@ -1,0 +1,38 @@
+K = [H, W]
+
+ans = ""
+
+# the dumb way
+for i in range(len(T)):
+    cr = []
+    if T[i] != 0:
+        for k in K:
+            x = 1
+            ud = "up"
+            j = 0
+            while j < T[i]:
+                if ud == "up":
+                    if x == k[i]:
+                        ud = "down"
+                        j -= 1
+                    else:
+                        x += 1
+                else:
+                    if x == 1:
+                        ud = "up"
+                        j -= 1
+                    else:
+                        x -= 1
+                j += 1
+            cr.append(str(x))
+    else:
+        cr.append("1")
+        cr.append("1")
+
+    ans += " ".join(cr) + "\n"
+    cr = []
+
+print(ans)
+
+## Works for the first 5 cases
+## Won't work if value too large
