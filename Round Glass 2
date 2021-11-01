@@ -1,0 +1,31 @@
+ans = 0
+unknown = ["x"]
+for j in range(1,len(R)):
+    s_new = R
+    s_new = list(sorted(s_new, key=int, reverse=True))
+    s_new.insert(j, unknown[0])
+    num = ""
+    pos = 0
+    neg = 0
+    for x in range(0, len(s_new), 2):
+        if s_new[x] in unknown:
+            num = "+"
+            continue
+        pos += s_new[x]**2
+    for y in range(1, len(s_new), 2):
+        if s_new[y] in unknown:
+            num = "-"
+            continue
+        neg += s_new[y]**2
+    if num == "+":
+        rem = (A-pos+neg)**(1/2)
+    else:
+        rem = (pos-neg-A)**(1/2)
+    if rem.is_integer():
+        ans += int(rem)
+        break
+print(ans)
+
+## Worked on case 6-7 but does take sometime to load
+## unable to get the output for case 8-10
+## so this is not the most efficient way to do it
