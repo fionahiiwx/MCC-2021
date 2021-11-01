@@ -1,0 +1,16 @@
+ans = []
+
+layers = sorted(layers, key=int)
+
+for i in range(N):
+    if ans == []:
+        ans.append(layers[i])
+    else:
+        ans.append(ans[i-1]*layers[i])
+
+if sum(ans) > (7+10**9):
+    ans = sum(ans) % (7+10**9)
+
+print(ans)
+
+## Works for case 6-10 as the format output of case 1-5 is different
