@@ -1,0 +1,17 @@
+ans = 0
+
+j = 1
+while True:
+    s_new = []
+    s_new += R + [j]
+    s_new = list(sorted(s_new, key=int, reverse=True))
+    pos = sum(s_new[x]**2 for x in range(0, len(s_new), 2))
+    neg = sum(s_new[y]**2 for y in range(1, len(s_new), 2))
+    if (pos - neg) == A:
+        print(j)
+        ans += j
+        break
+    j += 1
+    
+## Works for case 1-5
+## Won't work well when value too large
