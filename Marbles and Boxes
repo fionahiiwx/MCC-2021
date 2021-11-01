@@ -1,0 +1,17 @@
+diff = []
+
+for i in range(len(A)):
+    # make the differences
+    diff.append(A[i]-B[i])
+
+num = 0
+step = 0
+for i in range(len(diff)):
+    if diff[i] > 0 or diff[i] < 0:
+        # taking away / giving the marbles
+        num += diff[i]
+    step += abs(num)
+
+print(step)
+
+## Works for all 10 cases
