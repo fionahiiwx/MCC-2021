@@ -1,0 +1,40 @@
+def sum_subset(a, n):
+    times = 2**(n-1)
+    sum = 0
+    for i in range(n):
+        sum = sum + (a[i] * times)
+    return (sum % (7 + (10 ** 9)))
+
+def product_subset_sums(a, n):
+    # the pattern of subset of val a and b:
+    # = a + b + ab
+    # = a(1+b) + b + 1 - 1
+    # = a(1+b) + (1+b) - 1
+    # = (a + 1) * (b + 1) - 1
+    # it is always the ((Value)n+1)n - 1
+    ans = 1
+    for i in range(n):
+        ans = ans * (a[i] + 1)
+    return ((ans-1) % (7 + (10 ** 9)))
+
+def subset_XOR_sum(nums):
+    n = len(nums)
+    bits = 0
+    for i in range(n):
+        bits |= nums[i]
+    ans = (bits * (2 ** (n - 1))) % (7 + (10 ** 9))
+    return int(ans)
+
+n = len(A)
+
+if P == 1:
+    ans = sum_subset(A, n)
+elif P == 2:
+    ans = product_subset_sums(A, n)
+else:
+    ans = subset_XOR_sum(A)
+print(ans)
+
+## Works for all 10 cases
+## The functions and method are mostly not thought completely by me.
+## The methods can be found online somewhere.
